@@ -19,8 +19,8 @@ app.listen(3000,async ()=>{
     // const tweets=await Tweet.find({userEmail:'x@gmail.com'});
     // console.log(tweets);
     const tweetRepo=new TweetRepository();
-    const tweet = await tweetRepo.getAll(0,4);
-    console.log(tweet[2].contentWithEmail);
+    // const tweet = await tweetRepo.getAll(0,4);
+    // console.log(tweet[2].contentWithEmail);
     // const tweet=await tweetRepo.create({
     //     content:'my tweet'
     // });
@@ -34,5 +34,7 @@ app.listen(3000,async ()=>{
     //  const comment=await Comment.create({content:'new comment'});
     // tweet.comments.push(comment);
     // await tweet.save();
-    // console.log(tweet);
+    // 
+    const tweet= await tweetRepo.create({content: 'Inside a hook'});
+    console.log(tweet);
 });
