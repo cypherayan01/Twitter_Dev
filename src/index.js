@@ -3,9 +3,14 @@ const connect=require('./config/database');
 
 const app=express();
 
-
+/*
+ // for normal learning
 const TweetRepository=require('./repository/tweet-repository');
 const Comment=require('./models/comment');
+const { default: mongoose } = require('mongoose');
+*/
+
+const Tweet=require('./models/tweet')
 
 app.listen(3000,async ()=>{
     console.log("Server started...");
@@ -39,4 +44,9 @@ app.listen(3000,async ()=>{
     // 
     //const tweet= await tweetRepo.create({content: 'Inside a hook'});
     //console.log(tweet);
+
+    const tweets=await Tweet.find({
+        content:["Third Tweet","Main Tweet"]
+    });
+    console.log(tweets);
 });
